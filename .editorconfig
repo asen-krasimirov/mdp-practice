@@ -31,6 +31,9 @@ trim_trailing_whitespace = false
 [Makefile]
 indent_style = tab
 
+[.yml]
+ident_size = 2
+
 # Exclude .git and .github folders
-[.git/**, .github/**, .github/*/**]
+[.git/**, .github/**]
 ignore = true

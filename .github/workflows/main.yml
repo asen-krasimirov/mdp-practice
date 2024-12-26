@@ -40,4 +40,4 @@ jobs:
         pip install editorconfig-checker
 
     - name: Run editorconfig-checker
-      run: editorconfig-checker
+      run: editorconfig-checker .

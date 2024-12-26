@@ -23,7 +23,7 @@ jobs:
       run: |
         flake8 .
 
-  EditorConfig Checker:
+  EditorConfig-Checker:
     runs-on: ubuntu-latest
 
     - name: Install EditorConfig Checker

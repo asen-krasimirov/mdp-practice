@@ -42,4 +42,4 @@ jobs:
       run: npm install -g editorconfig-checker
 
     - name: Run editorconfig-checker with verbose logging
-      run: editorconfig-checker . --verbose
+      run: editorconfig-checker / --verbose

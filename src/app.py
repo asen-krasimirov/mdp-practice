@@ -1,10 +1,13 @@
 import socket
 from flask import Flask
+
 app = Flask(__name__)
+
 
 @app.route('/')
 def hello_world():
-    return "Hello! I am a Flask application running on {}".format(socket.gethostname())
+    host_name = socket.gethostname()
+    return f"Hello! I am a Flask application running on {host_name}"
 
 
 if __name__ == '__main__':

@@ -54,5 +54,5 @@ jobs:
     - name: Run cli-markdown on all .md files
       run: |
         for file in $(find . -name "*.md"); do
-          npm run cli-markdown "$file"
+          cli-markdown "$file"
         done

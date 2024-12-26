@@ -27,6 +27,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Install EditorConfig Checker
         run: |
           wget https://github.com/editorconfig-checker/editorconfig-checker/releases/download/2.3.3/ec-linux-amd64.tar.gz tar -xzf ec-linux-amd64.tar.gz sudo mv bin/ec-linux-amd64 /usr/local/bin/ec 

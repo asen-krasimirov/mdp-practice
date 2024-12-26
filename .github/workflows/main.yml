@@ -29,14 +29,15 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
+    
+    - name: Set up Python
+      uses: actions/setup-python@v2
       with:
-        node-version: '14'
+        python-version: '3.x'
 
     - name: Install editorconfig-checker
-      run: npm install -g editorconfig-checker
+      run: |
+        pip install editorconfig-checker
 
     - name: Run editorconfig-checker
       run: editorconfig-checker

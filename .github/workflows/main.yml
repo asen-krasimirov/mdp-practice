@@ -51,6 +51,5 @@ jobs:
     - name: Install cli-markdown
       run: npm install -g cli-markdown
 
-
     - name: Run cli-markdown on all .md files
       run: npx cli-markdown *.md

@@ -32,5 +32,5 @@ trim_trailing_whitespace = false
 indent_style = tab
 
 # Exclude .git and .github folders
-[.git/**, .github/**]
+[.git/**, .github/**, .github/*/**]
 ignore = true

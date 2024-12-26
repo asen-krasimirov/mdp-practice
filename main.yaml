@@ -1,0 +1,26 @@
+name: Main Workflow
+
+on: push
+
+jobs:
+  flake8-lint:
+    runs-on: ubuntu:latest
+    script:
+      - apt-get update && apt-get install -y python3-pip
+      - pip install flake8
+      - flake8 ./src
+
+  # editorconfig-check:
+  #  runs-on: ubuntu:latest
+  #  script:
+  #    - apt-get update && apt-get install -y curl
+  #    - curl -sSL https://github.com/editorconfig-checker/editorconfig-checker/releases/latest/download/ec-linux-amd64.tar.gz | tar -xz
+  #    - ./bin/ec .editorconfig
+
+  # markdownlint-check:
+  #  runs-on: ubuntu:latest
+  #  script:
+  #    - apt-get update && apt-get install -y curl npm
+  #    - npm install -g markdownlint-cli
+  #    - markdownlint "**/*.md"
+

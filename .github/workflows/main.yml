@@ -3,7 +3,7 @@ name: Main Workflow
 on: [push]
 
 jobs:
-  Linter:
+  linter:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,7 +23,7 @@ jobs:
       run: |
         flake8 .
 
-  EditorConfig-Checker:
+  editorconfig-checker:
     runs-on: ubuntu-latest
 
     steps:
@@ -35,3 +35,21 @@ jobs:
 
     - name: Run editorconfig-checker
       run: editorconfig-checker
+
+  Markdown-Checker:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+
+    - name: Install cli-markdown
+      run: npm install -g cli-markdown
+
+    - name: Run cli-markdown on all .md files
+      run: find . -name "*.md" -exec cli-markdown {} \;

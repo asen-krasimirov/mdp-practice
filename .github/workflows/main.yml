@@ -36,7 +36,7 @@ jobs:
     - name: Run editorconfig-checker
       run: editorconfig-checker
 
-  Markdown-Checker:
+  markdown-checker:
     runs-on: ubuntu-latest
 
     steps:
@@ -52,4 +52,7 @@ jobs:
       run: npm install -g cli-markdown
 
     - name: Run cli-markdown on all .md files
-      run: find . -name "*.md" -exec cli-markdown {} \;
+      run: |
+        for file in $(find . -name "*.md"); do
+          cli-markdown "$file"
+        done

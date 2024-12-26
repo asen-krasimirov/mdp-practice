@@ -35,9 +35,11 @@ jobs:
       with:
         node-version: '16'
 
-    - name: Install editorconfig-checker
-      run: |
-        npm install -g editorconfig-checker
+    - name: Verify Node.js installation
+      run: node -v
 
-    - name: Run editorconfig-checker
-      run: editorconfig-checker .
+    - name: Install editorconfig-checker
+      run: npm install -g editorconfig-checker
+
+    - name: Run editorconfig-checker with verbose logging
+      run: editorconfig-checker . --verbose

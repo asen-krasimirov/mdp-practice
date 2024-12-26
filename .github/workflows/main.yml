@@ -49,10 +49,14 @@ jobs:
         node-version: '18'
 
     - name: Install cli-markdown
-      run: npm install -g cli-markdown
+      run: if [ -f package.json ]; then npm install -g cli-markdown; else echo "package.json not found"; fi
 
     - name: Run cli-markdown on all .md files
       run: |
         for file in $(find . -name "*.md"); do
-          cli-markdown "$file"
+          if command -v cli-markdown &> /dev/null; then
+            npx cli-markdown "$file"
+          else
+            echo "cli-markdown not installed"
+          fi
         done

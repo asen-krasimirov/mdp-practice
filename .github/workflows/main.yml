@@ -43,16 +43,5 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Install Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '18'
-
-    - name: Install cli-markdown
-      run: npm install -g cli-markdown
-
     - name: Run cli-markdown on all .md files
-      run: |
-        for file in $(find . -name "*.md"); do
-          npx cli-markdown "$file"
-        done
+      run: npx cli-markdown *.md

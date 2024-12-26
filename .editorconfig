@@ -1,39 +1,26 @@
-# EditorConfig helps maintain consistent coding styles for multiple developers
-# working on the same project across various editors and IDEs.
-
-# Top-most EditorConfig file
+# This is the top-most EditorConfig file.
 root = true
 
-# Unix-style newlines with a newline ending every file
+# For all files.
 [*]
+charset = utf-8
 end_of_line = lf
-insert_final_newline = true
-
-# 4 space indentation
-[*]
 indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Source code files
+[*.{h,cpp,py,sh}]
 indent_size = 4
 
-# Matches multiple file extensions
-[*.{js,css,html}]
+# .cirrus.yml, .fuzzbuzz.yml, etc.
+[*.yml]
 indent_size = 2
 
-# Specific to JSON files
-[*.json]
-indent_style = space
-indent_size = 2
-
-# Markdown files
-[*.md]
-trim_trailing_whitespace = false
-
-# Tab indentation (no size specified)
-[Makefile]
+# Makefiles
+[{*.am,Makefile.*.include}]
 indent_style = tab
 
-[.yml]
-ident_size = 2
-
-# Exclude .git and .github folders
-[.git/**, .github/**]
-ignore = true
+# Autoconf scripts
+[configure.ac]
+indent_size = 2

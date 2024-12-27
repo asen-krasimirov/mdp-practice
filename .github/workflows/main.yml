@@ -94,6 +94,9 @@ jobs:
 
       - name: Run snyk
         run: npx snyk test --file="./src/requirements.txt"
+        with:
+          args: >
+            -SNYK_TOKEN=${{ secrets.SNYK_TOKEN }}
 
   unittests:
     runs-on: ubuntu-latest

@@ -56,7 +56,7 @@ jobs:
 
   unittests:
     runs-on: ubunto-latest
-    
+
     needs: [linter]
 
     steps:

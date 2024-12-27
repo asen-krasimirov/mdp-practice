@@ -88,7 +88,11 @@ jobs:
         fetch-depth: 0
 
     - name: SonarQube Scan
-      uses: SonarSource/sonarqube-scan-action@v4.1.0 
+      uses: SonarSource/sonarqube-scan-action@v4.1.0
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
+      with:
+        args: >
+          -Dsonar.projectKey=${{ vars.SONAR_PROJECT_KEY }}
+          -Dsonar.organization=${{ vars.SONAR_ORGANIZATION_KEY }}

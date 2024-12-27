@@ -153,11 +153,10 @@ jobs:
 
     - name: Install Flyway
       run: |
-        wget https://flywaydb.org/download/community/latest/flyway-commandline-linux-x64.tar.gz
-        file flyway-commandline-linux-x64.tar.gz
-        tar -xvf flyway-commandline-linux-x64.tar.gz
+        wget https://download.red-gate.com/maven/release/com/redgate/flyway/flyway-commandline/11.1.0/flyway-commandline-11.1.0-linux-x64.tar.gz
+        tar -xvf flyway-commandline-11.1.0-linux-x64.tar.gz
         sudo mv flyway-*/flyway /usr/local/bin
 
     - name: Run Flyway migration
       run: |
-        echo flyway -url=jdbc:mysql://localhost:3306/your_db -user=your_user -password=your_password migrate
+        echo flyway -url=jdbc:mysql://localhost:3306/your_db -user=your_user -password=your_password check

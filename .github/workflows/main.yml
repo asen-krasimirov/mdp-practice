@@ -157,8 +157,9 @@ jobs:
       run: |
         wget https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/11.1.0/flyway-commandline-11.1.0-linux-x64.tar.gz
         tar -xvf flyway-commandline-11.1.0-linux-x64.tar.gz
-        sudo mv flyway-*/flyway /usr/local/bin
+        mv flyway-11.1.0 /usr/local/flyway
+        export PATH=$PATH:/usr/local/flyway
 
     - name: Run Flyway migration check
       run: |
-        flyway -url=jdbc:mysql://localhost:3306/your_db -user=your_user -password=your_password -locations=filesystem:sql check
+        /usr/local/flyway/flyway -url=jdbc:mysql://localhost:3306/your_db -user=your_user -password=your_password -locations=filesystem:sql check

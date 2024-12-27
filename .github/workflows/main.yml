@@ -143,3 +143,20 @@ jobs:
       - uses: gitleaks/gitleaks-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITLEAKS_TOKEN }}
+
+  database-migrate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install Flyway
+      run: |
+        wget https://flywaydb.org/download/community/latest/flyway-commandline-linux-x64.tar.gz
+        tar -xvf flyway-commandline-linux-x64.tar.gz
+        sudo mv flyway-*/flyway /usr/local/bin
+
+    - name: Run Flyway migration
+      run: |
+        echo flyway -url=jdbc:mysql://localhost:3306/your_db -user=your_user -password=your_password migrate

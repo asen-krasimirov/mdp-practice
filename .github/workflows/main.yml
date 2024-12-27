@@ -86,7 +86,7 @@ jobs:
 
       - name: Install Snyk with npm
         run: npm install -g snyk
-  
+
       - name: Run snyk
         run: npx snyk test --file="./build.gradle"
 

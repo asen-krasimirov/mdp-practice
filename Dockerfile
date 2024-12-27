@@ -1,17 +1,22 @@
-# Use Ubuntu as the base image
-FROM ubuntu:latest
+# Use a minimal base image
+FROM python:3.9-slim
 
-# Set the working directory in the container
+# Set the working directory
 WORKDIR /app
 
-# Install Python, pip, and other dependencies
-RUN apt-get update && apt-get install -y python3 python3-pip python3-venv build-essential libssl-dev libffi-dev python3-dev
+# Install dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    libssl-dev \
+    libffi-dev \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # Copy the source directory contents into the container at /app
 COPY ./src /app
 
 # Create a virtual environment and activate it
-RUN python3 -m venv venv
+RUN python -m venv venv
 
 # Install any needed packages specified in requirements.txt using the virtual environment's pip
 RUN ./venv/bin/pip install --no-cache-dir -r /app/requirements.txt

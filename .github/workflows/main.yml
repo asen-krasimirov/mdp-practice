@@ -74,5 +74,7 @@ jobs:
           pip install -r src/requirements.txt
 
       - name: Run tests
+        env:
+          PYTHONPATH: src
         run: |
           python -m unittest src/app_test.py

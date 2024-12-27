@@ -150,15 +150,15 @@ jobs:
     needs: unittests
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v3
 
     - name: Install Flyway
       run: |
-        wget https://download.red-gate.com/maven/release/com/redgate/flyway/flyway-commandline/11.1.0/flyway-commandline-11.1.0-linux-x64.tar.gz
+        wget https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/11.1.0/flyway-commandline-11.1.0-linux-x64.tar.gz
         tar -xvf flyway-commandline-11.1.0-linux-x64.tar.gz
         sudo mv flyway-*/flyway /usr/local/bin
 
-    - name: Run Flyway migration
+    - name: Run Flyway migration check
       run: |
         flyway -url=jdbc:mysql://localhost:3306/your_db -user=your_user -password=your_password -locations=filesystem:sql check

@@ -154,6 +154,7 @@ jobs:
     - name: Install Flyway
       run: |
         wget https://flywaydb.org/download/community/latest/flyway-commandline-linux-x64.tar.gz
+        file flyway-commandline-linux-x64.tar.gz
         tar -xvf flyway-commandline-linux-x64.tar.gz
         sudo mv flyway-*/flyway /usr/local/bin
 
